@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Platform, Image, Text } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { normalize, moderateScale } from '@/utilis/Dimensions';
-import AppStartScreen from '@/components/ui/Welcome/AppStartScreen';
-import WelcomeScreen from '@/components/ui/Welcome/WelcomeScreen';
-import HomeScreen from '@/components/ui/TabNavigator/HomeScreen';
-import ProfileScreen from '@/components/ui/TabNavigator/ProfileScreen';
+import AppStartScreen from '@/components/Welcome/AppStartScreen';
+import WelcomeScreen from '@/components/Welcome/WelcomeScreen';
+import HomeScreen from '@/components/TabNavigator/HomeScreen';
+import ProfileScreen from '@/components/TabNavigator/ProfileScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -37,13 +36,11 @@ const TabNavigator = () => {
 
 export default function AppNavigator() {
     return (
-        <NavigationContainer>
-            <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='AppStart'>
-                <Stack.Screen name='AppStart' component={AppStartScreen} />
-                <Stack.Screen name='Welcome' component={WelcomeScreen} />
-                <Stack.Screen name='Tab' component={TabNavigator} />
-            </Stack.Navigator>
-        </NavigationContainer>
+        <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='Welcome'>
+            <Stack.Screen name='AppStart' component={AppStartScreen} />
+            <Stack.Screen name='Welcome' component={WelcomeScreen} />
+            <Stack.Screen name='Tab' component={TabNavigator} />
+        </Stack.Navigator>
     );
 }
 
