@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { StyleSheet, Platform, Image, Text } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { normalize, moderateScale } from '@/utilis/Dimensions';
-import AppStartScreen from '@/components/Welcome/AppStartScreen';
 import WelcomeScreen from '@/components/Welcome/WelcomeScreen';
 import HomeScreen from '@/components/TabNavigator/HomeScreen';
 import ProfileScreen from '@/components/TabNavigator/ProfileScreen';
+import SplashScreen from '@/components/Splash/SplashScreen';
+import LoginScreen from '@/components/Auth/LoginScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -36,9 +37,10 @@ const TabNavigator = () => {
 
 export default function AppNavigator() {
     return (
-        <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='Welcome'>
-            <Stack.Screen name='AppStart' component={AppStartScreen} />
+        <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='Splash'>
+            <Stack.Screen name='Splash' component={SplashScreen} />
             <Stack.Screen name='Welcome' component={WelcomeScreen} />
+            <Stack.Screen name='Login' component={LoginScreen} />
             <Stack.Screen name='Tab' component={TabNavigator} />
         </Stack.Navigator>
     );

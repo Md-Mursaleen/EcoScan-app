@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "862607166746",
+    "project_id": "ecoscan-app-afb1e",
+    "storage_bucket": "ecoscan-app-afb1e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862607166746:android:1de11a233e32033e68f0a3",
+        "android_client_info": {
+          "package_name": "com.ecoscan.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "862607166746-0s6l1jfupfutm056eolh2vrdfj4cki1f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ecoscan.app",
+            "certificate_hash": "d420c24fa4feb5146945d99b3c3fc56dbe5e20d0"
+          }
+        },
+        {
+          "client_id": "862607166746-7cs2ajp9ltm7vqajiqtqghir1vrnctif.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ecoscan.app",
+            "certificate_hash": "52bf2db5e66744b3181a4f741287e4cae3ab1fc1"
+          }
+        },
+        {
+          "client_id": "862607166746-1fv7ea7nb41hdj87v1o9clhin7jvaq3u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQGQUTJ7oAtE8znnlGMYLxWl-L_UvItQE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "862607166746-1fv7ea7nb41hdj87v1o9clhin7jvaq3u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

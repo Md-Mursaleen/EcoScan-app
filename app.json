@@ -1,28 +1,16 @@
 {
   "expo": {
     "name": "EcoScan",
-    "slug": "EcoScanApp",
-    "version": "1.0.0",
+    "slug": "ecoscanapp",
+    "version": "0.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "ecoscanapp",
+    "assets": [
+      "./assets/fonts/"
+    ],
+    "scheme": "ecoscan",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true
-    },
-    "web": {
-      "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
-    },
     "plugins": [
       "expo-router",
       [
@@ -30,13 +18,47 @@
         {
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#FFFFFF",
+          "resizeMode": "contain"
         }
-      ]
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "EcoScan needs access to your photos to allow you to upload clothing images to analyze and calculate their carbon footprint."
+        }
+      ],
+      "expo-web-browser"
     ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ecoscan.app"
+    },
+    "android": {
+      "package": "com.ecoscan.app",
+      "googleServicesFile": "./google-services.json",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "edgeToEdgeEnabled": true,
+      "versionCode": 1,
+      "compileSdkVersion": 34,
+      "targetSdkVersion": 34
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "4ef71b89-ffac-4c00-93d3-81701a5805d1"
+      }
+    },
+    "owner": "md_mursaleen"
   }
 }

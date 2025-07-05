@@ -2,16 +2,11 @@ import 'react-native-reanimated';
 import React, { useEffect } from 'react';
 import { TamaguiProvider, createTamagui } from '@tamagui/core';
 import { config } from '@tamagui/config/v3';
-import { useFonts, Alert } from 'expo-font';
+import { useFonts } from 'expo-font';
 import { LogBox } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
 import * as SplashScreen from 'expo-splash-screen';
 import AppNavigator from './navigation/AppNavigator';
-
-type RootStackParamList = {
-};
 
 LogBox.ignoreAllLogs();
 
@@ -25,11 +20,9 @@ const tamaguiConfig = createTamagui(config);
 type Conf = typeof tamaguiConfig;
 declare module '@tamagui/core' {
   interface TamaguiCustomConfig extends Conf { }
-}
+};
 
 export default function RootLayout() {
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-
   const [loaded] = useFonts({
     DomineRegular: require('../assets/fonts/Domine-Regular.ttf'),
     DomineMedium: require('../assets/fonts/Domine-Medium.ttf'),
