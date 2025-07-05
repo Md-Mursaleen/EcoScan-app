@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Image, Pressable, Animated, Dimensions, ImageSourcePropType, FlatList, ActivityIndicator, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable, Animated, Dimensions, ImageSourcePropType, FlatList, ActivityIndicator, TouchableOpacity, Platform } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { normalize, moderateScale } from '@/utilis/Dimensions';
@@ -78,15 +78,15 @@ const HomeScreen = () => {
         try {
             const formData = new FormData();
             formData.append('image', {
-                uri: uri,
+                uri: Platform.OS === 'android' ? uri : uri.replace('file://', ''),
                 name: fileName,
                 type: type || 'image/jpeg',
             } as any);
             console.log('Uploading image:', JSON.stringify(formData));
 
-            const response = await axios.post('http://10.0.2.2:5000/analyze', formData, {
+            const response = await axios.post('http://10.0.2.2:8000/analyze', formData, {
                 headers: {
-                    'Content-Type': 'multipart/form-data',
+                    Accept: 'application/json',
                 },
             });
             console.log('Upload response:', response.data);
@@ -96,14 +96,22 @@ const HomeScreen = () => {
             setTotalScore(totalScore);
             setEcoPoints(ecoPoints);
 
-            const rewardsResponse = await axios.get(`http://10.0.2.2:5000/rewards?points=${ecoPoints}`);
+            const rewardsResponse = await axios.get(`http://10.0.2.2:8000/rewards?points=${ecoPoints}`);
 
             const rewards = rewardsResponse.data.rewards;
             setRewards(rewards);
         } catch (error) {
             clearInterval(interval);
             setScreen('initial');
-            console.error("Upload error:", error);
+            console.error('Upload error:', error);
+            if (axios.isAxiosError(error)) {
+                console.error('Axios error:', error.message);
+                console.error('Axios error config:', error.config);
+                console.error('Axios error request:', error.request);
+                console.error('Axios error response:', error.response);
+            } else {
+                console.error('Unknown error:', error);
+            }
             alert('Upload failed. Please try again.');
         }
     };

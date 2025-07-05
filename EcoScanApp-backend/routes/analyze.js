@@ -1,7 +1,6 @@
 const express = require('express');
 const multer = require('multer');
 const router = express.Router();
-const mockClassifier = require('../utilis/mockClassifier');
 const gptClassifier = require('../utilis/gptClassifier');
 const scoreCalculator = require('../utilis/scoreCalculator');
 
