@@ -7,6 +7,7 @@ import * as ImagePicker from 'expo-image-picker';
 import * as FileSystem from 'expo-file-system';
 import * as Progress from 'react-native-progress';
 import LottieView from 'lottie-react-native';
+import axios from 'axios';
 
 type ImageData = {
     uri: string;
@@ -15,6 +16,13 @@ type ImageData = {
 };
 
 type RootStackParamList = {
+    Details: {
+        image: ImageData;
+        items: { name: string; carbonScore: number }[];
+        totalScore: number;
+        ecoPoints: number;
+        rewards: { title: string; requiredPoints: number; description: string }[];
+    };
 };
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList>;
@@ -24,6 +32,10 @@ const HomeScreen = () => {
     const [screen, setScreen] = useState('initial');
     const [image, setImage] = useState<ImageData | null>(null);
     const [progress, setProgress] = useState(0);
+    const [items, setItems] = useState([]);
+    const [totalScore, setTotalScore] = useState(0);
+    const [ecoPoints, setEcoPoints] = useState(0);
+    const [rewards, setRewards] = useState([]);
 
     const handlePickImage = async () => {
         const result = await ImagePicker.launchImageLibraryAsync({ mediaTypes: ImagePicker.MediaTypeOptions.Images });
@@ -62,6 +74,38 @@ const HomeScreen = () => {
             }
             setProgress(progressVal);
         }, 100);
+
+        try {
+            const formData = new FormData();
+            formData.append('image', {
+                uri: uri,
+                name: fileName,
+                type: type || 'image/jpeg',
+            } as any);
+            console.log('Uploading image:', JSON.stringify(formData));
+
+            const response = await axios.post('http://10.0.2.2:5000/analyze', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+            console.log('Upload response:', response.data);
+
+            const { items, totalScore, ecoPoints } = response.data;
+            setItems(items);
+            setTotalScore(totalScore);
+            setEcoPoints(ecoPoints);
+
+            const rewardsResponse = await axios.get(`http://10.0.2.2:5000/rewards?points=${ecoPoints}`);
+
+            const rewards = rewardsResponse.data.rewards;
+            setRewards(rewards);
+        } catch (error) {
+            clearInterval(interval);
+            setScreen('initial');
+            console.error("Upload error:", error);
+            alert('Upload failed. Please try again.');
+        }
     };
 
     const clearUpload = () => {
@@ -70,9 +114,23 @@ const HomeScreen = () => {
         setScreen('initial');
     };
 
+    const handleNavigation = () => {
+        if (!image) return;
+
+        navigation.navigate('Details', {
+            image,
+            items,
+            totalScore,
+            ecoPoints,
+            rewards,
+        });
+    };
+
     const getFileTypeIcon = (fileName?: string) => {
         if (fileName?.endsWith('.png')) {
             return require('../../assets/images/png-image.png');
+        } else if (fileName?.endsWith('.pdf')) {
+            return require('../../assets/images/pdf-image.png');
         } else if (fileName?.endsWith('.jpg') || fileName?.endsWith('.jpeg')) {
             return require('../../assets/images/jpg-image.png');
         } else {
@@ -89,7 +147,7 @@ const HomeScreen = () => {
                     <Image source={require('../../assets/images/upload-image.png')} style={styles.imageStyle} />
                     <TouchableOpacity onPress={handlePickImage} style={styles.uploadButtonContainer}>
                         <Text style={styles.uploadTextStyle}>Tap to upload photo</Text>
-                        <Text style={styles.infoTextStyle}>PNG, JPG or PDF (max. 800x400px)</Text>
+                        <Text style={styles.infoTextStyle}>PNG, JPG, JPEG or PDF (max. 800x400px)</Text>
                     </TouchableOpacity>
                     <Text style={styles.orTextStyle}>OR</Text>
                     <TouchableOpacity onPress={handleOpenCamera} style={styles.cameraButtonContainer}>
@@ -120,9 +178,9 @@ const HomeScreen = () => {
                     </TouchableOpacity>
                 </View>
             )}
-            <TouchableOpacity style={[styles.uploadScanButtonContainer, screen === 'complete' ? { backgroundColor: '#0066FF' } : { backgroundColor: '#CCCCCC' }]}
+            <TouchableOpacity onPress={handleNavigation} style={[styles.uploadScanButtonContainer, screen === 'complete' ? { backgroundColor: '#0066FF' } : { backgroundColor: '#CCCCCC' }]}
                 disabled={screen !== 'complete'}>
-                <Text style={styles.uploadScanButtonTextStyle}>View Carbon Score</Text>
+                <Text style={styles.uploadScanButtonTextStyle}>{screen === 'complete' ? 'View Carbon Score' : 'Scan to View Score'}</Text>
             </TouchableOpacity>
         </View>
     );
