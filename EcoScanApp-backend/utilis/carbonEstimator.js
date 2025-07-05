@@ -11,7 +11,7 @@ async function estimateCarbonScores(items) {
 
     try {
         const response = await openai.chat.completions.create({
-            model: 'gpt-4',
+            model: 'gpt-4o',
             messages: [{ role: 'user', content: prompt }],
             max_tokens: 300,
         });
@@ -19,15 +19,15 @@ async function estimateCarbonScores(items) {
         const content = response.choices[0].message.content.trim();
 
         try {
-            const parsed = JSON.parse(content);
-            return parsed;
+            const parsedContent = JSON.parse(content);
+            return parsedContent;
         } catch {
             // fallback if not valid JSON
-            console.error("GPT response not valid JSON:", content);
+            console.error("GPT response is not valid JSON:", content);
             return {};
         }
-    } catch (err) {
-        console.error('OpenAI error (carbon estimator):', err);
+    } catch (error) {
+        console.error('OpenAI API error (carbon estimator):', error);
         return {};
     }
 }

@@ -11,7 +11,7 @@ async function gptClassifier(base64Image) {
                    `;
 
     const response = await openai.chat.completions.create({
-        model: 'gpt-4-vision-preview',
+        model: 'gpt-4o',
         messages: [
             {
                 role: 'user',
@@ -29,14 +29,14 @@ async function gptClassifier(base64Image) {
         max_tokens: 200,
     });
 
-    const rawText = response.choices[0].message.content.trim();
+    const text = response.choices[0].message.content.trim();
 
     try {
-        const parsed = JSON.parse(rawText);
-        return Array.isArray(parsed) ? parsed : [];
+        const parsedText = JSON.parse(text);
+        return Array.isArray(parsedText) ? parsedText : [];
     } catch {
         // fallback if response isn't valid JSON
-        return rawText.split(/[,;]/).map(item => item.trim());
+        return text.split(/[,;]/).map(item => item.trim());
     }
 }
 

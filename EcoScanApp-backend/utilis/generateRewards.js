@@ -18,7 +18,7 @@ async function generateRewards(points) {
 
     try {
         const response = await openai.chat.completions.create({
-            model: 'gpt-4',
+            model: 'gpt-4o',
             messages: [{ role: 'user', content: prompt }],
             max_tokens: 400,
         });
@@ -26,14 +26,14 @@ async function generateRewards(points) {
         const content = response.choices[0].message.content.trim();
 
         try {
-            const parsed = JSON.parse(content);
-            return Array.isArray(parsed) ? parsed : [];
+            const parsedContent = JSON.parse(content);
+            return Array.isArray(parsedContent) ? parsedContent : [];
         } catch (err) {
             console.error('Failed to parse GPT reward response:', content);
             return [];
         }
-    } catch (err) {
-        console.error('OpenAI error (reward generator):', err);
+    } catch (error) {
+        console.error('OpenAI API error (reward generator):', error);
         return [];
     }
 }

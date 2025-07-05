@@ -80,13 +80,14 @@ const HomeScreen = () => {
             formData.append('image', {
                 uri: Platform.OS === 'android' ? uri : uri.replace('file://', ''),
                 name: fileName,
-                type: type || 'image/jpeg',
+                type: 'image/jpeg',
             } as any);
             console.log('Uploading image:', JSON.stringify(formData));
 
-            const response = await axios.post('http://10.0.2.2:8000/analyze', formData, {
+            const response = await axios.post('http://192.168.0.111:8000/analyze', formData, {
                 headers: {
                     Accept: 'application/json',
+                    'Content-Type': 'multipart/form-data',
                 },
             });
             console.log('Upload response:', response.data);
@@ -96,7 +97,7 @@ const HomeScreen = () => {
             setTotalScore(totalScore);
             setEcoPoints(ecoPoints);
 
-            const rewardsResponse = await axios.get(`http://10.0.2.2:8000/rewards?points=${ecoPoints}`);
+            const rewardsResponse = await axios.get(`http://192.168.0.111:8000/rewards?points=${ecoPoints}`);
 
             const rewards = rewardsResponse.data.rewards;
             setRewards(rewards);
@@ -104,14 +105,6 @@ const HomeScreen = () => {
             clearInterval(interval);
             setScreen('initial');
             console.error('Upload error:', error);
-            if (axios.isAxiosError(error)) {
-                console.error('Axios error:', error.message);
-                console.error('Axios error config:', error.config);
-                console.error('Axios error request:', error.request);
-                console.error('Axios error response:', error.response);
-            } else {
-                console.error('Unknown error:', error);
-            }
             alert('Upload failed. Please try again.');
         }
     };

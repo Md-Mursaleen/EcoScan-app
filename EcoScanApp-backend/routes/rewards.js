@@ -14,8 +14,10 @@ router.get('/', async (req, res) => {
         const rewards = await generateRewards(points);
         if (rewards.length === 0) {
             // fallback filter from static rewards
-            const eligible = fallbackRewards.filter(offer => offer.requiredPoints <= points);
+            const eligible = fallbackRewards.filter(rewards => rewards.requiredPoints <= points);
             return res.json({ rewards: eligible });
+        } else {
+            return res.json({ rewards });
         }
     } catch (err) {
         console.error('Reward generation failed:', err);

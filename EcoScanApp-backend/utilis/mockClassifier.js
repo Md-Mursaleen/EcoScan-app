@@ -1,9 +1,29 @@
-const possibleItems = ['T-shirt', 'Jeans', 'Jacket', 'Shoes', 'Dress'];
+const possibleItems = [
+    'T-shirt',
+    'Jeans',
+    'Jacket',
+    'Shoes',
+    'Dress',
+    'Sweater',
+    'Hoodie',
+    'Shorts',
+    'Skirt',
+    'Blazer',
+    'Coat',
+    'Tank Top',
+    'Scarf',
+    'Hat',
+    'Gloves',
+    'Socks',
+    'Sneakers',
+    'Boots',
+    'Leggings',
+    'Tracksuit',
+];
 
 function mockClassifier(imageBuffer) {
-    // In a real app, you'd use image recognition here
-    // For now, randomly return 2-3 items
-    const count = Math.floor(Math.random() * 2) + 2;
+    // Randomly return 2 to 4 items
+    const count = Math.floor(Math.random() * 3) + 2;
     const shuffled = [...possibleItems].sort(() => 0.5 - Math.random());
     return shuffled.slice(0, count);
 }
