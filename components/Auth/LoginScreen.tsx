@@ -52,13 +52,17 @@ const LoginScreen = () => {
         }
     }, [response]);
 
+    const signInWithGoogle = async () => {
+        promptAsync({ showInRecents: true });
+    };
+
     return (
         <View style={styles.container}>
             <Text style={[styles.headingTextStyle, { fontSize: 40 }]}>Eco<Text style={[styles.headingTextStyle, { fontSize: 40, color: '#61c787' }]}>Scan</Text></Text>
             <Text style={styles.titleTextStyle}>Easily track your</Text>
             <Text style={styles.subTitleTextStyle}>{`clothing's carbon footprint`}</Text>
             <Image source={require('../../assets/images/login-image.png')} style={styles.imageStyle} />
-            <TouchableOpacity onPress={() => promptAsync()} style={styles.buttonContainer}>
+            <TouchableOpacity onPress={signInWithGoogle} style={styles.buttonContainer}>
                 <Text style={styles.buttonTextStyle}>Sign in with Google</Text>
             </TouchableOpacity>
         </View>
