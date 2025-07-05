@@ -20,8 +20,8 @@ const TabNavigator = () => {
                     return <Text style={styles.tabBarLabelStyle}>{focused ? 'Home' : ''}</Text>
                 },
                 tabBarIcon: ({ focused }) => focused ?
-                    <Image source={require('../../assets/images/insights-solid.png')} style={[styles.tabBarIconStyle, { width: 30, height: 30 }]} /> :
-                    <Image source={require('../../assets/images/insights.png')} style={[styles.tabBarIconStyle, { marginTop: 20 }]} />
+                    <Image source={require('../../assets/images/scanner-solid.png')} style={[styles.tabBarIconStyle, { width: 30, height: 30 }]} /> :
+                    <Image source={require('../../assets/images/scanner.png')} style={[styles.tabBarIconStyle, { marginTop: 20 }]} />
             }} />
             <Tab.Screen name='Profile' component={ProfileScreen} options={{
                 tabBarLabel: ({ focused }) => {
