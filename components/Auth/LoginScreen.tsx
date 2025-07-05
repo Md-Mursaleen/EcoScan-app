@@ -4,7 +4,9 @@ import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { normalize, moderateScale } from '@/utilis/Dimensions';
 import * as WebBrowser from 'expo-web-browser';
+import * as AuthSession from 'expo-auth-session';
 import * as Google from 'expo-auth-session/providers/google';
+import Constants from 'expo-constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import LottieView from 'lottie-react-native';
 
@@ -23,7 +25,7 @@ const LoginScreen = () => {
     const [request, response, promptAsync] = Google.useAuthRequest({
         androidClientId: "1862782058-q5384nqr4o1mj17nscs5nqavgav50ptr.apps.googleusercontent.com",
         iosClientId: "1862782058-85jb045kl4633f5ji0sv0encolgpnfv9.apps.googleusercontent.com",
-        // expoClientId: "1862782058-afi16ltnifj95ecqno19hnm5t1lj9csk.apps.googleusercontent.com"
+        expoClientId: "1862782058-vai6nvv480madc5cm48n75sr8pmeau3s.apps.googleusercontent.com"
     });
 
     console.log('Redirect URI:', request?.redirectUri);
@@ -50,17 +52,13 @@ const LoginScreen = () => {
         }
     }, [response]);
 
-    const signInWithGoogle = () => {
-        promptAsync({ useProxy: false });
-    };
-
     return (
         <View style={styles.container}>
             <Text style={[styles.headingTextStyle, { fontSize: 40 }]}>Eco<Text style={[styles.headingTextStyle, { fontSize: 40, color: '#61c787' }]}>Scan</Text></Text>
             <Text style={styles.titleTextStyle}>Easily track your</Text>
             <Text style={styles.subTitleTextStyle}>{`clothing's carbon footprint`}</Text>
             <Image source={require('../../assets/images/login-image.png')} style={styles.imageStyle} />
-            <TouchableOpacity onPress={signInWithGoogle} style={styles.buttonContainer}>
+            <TouchableOpacity onPress={() => promptAsync()} style={styles.buttonContainer}>
                 <Text style={styles.buttonTextStyle}>Sign in with Google</Text>
             </TouchableOpacity>
         </View>
