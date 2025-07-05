@@ -23,8 +23,10 @@ const LoginScreen = () => {
     const [request, response, promptAsync] = Google.useAuthRequest({
         androidClientId: "1862782058-q5384nqr4o1mj17nscs5nqavgav50ptr.apps.googleusercontent.com",
         iosClientId: "1862782058-85jb045kl4633f5ji0sv0encolgpnfv9.apps.googleusercontent.com",
-        expoClientId: "1862782058-afi16ltnifj95ecqno19hnm5t1lj9csk.apps.googleusercontent.com"
+        // expoClientId: "1862782058-afi16ltnifj95ecqno19hnm5t1lj9csk.apps.googleusercontent.com"
     });
+
+    console.log('Redirect URI:', request?.redirectUri);
 
     async function fetchUserData() {
         let response = await fetch("https://www.googleapis.com/userinfo/v2/me", {
@@ -49,7 +51,7 @@ const LoginScreen = () => {
     }, [response]);
 
     const signInWithGoogle = () => {
-        promptAsync({ useProxy: false, showInRecents: true });
+        promptAsync({ useProxy: false });
     };
 
     return (
@@ -81,7 +83,7 @@ const styles = StyleSheet.create({
         color: '#000000',
     },
     titleTextStyle: {
-        marginTop: normalize(18),
+        marginTop: normalize(10),
         marginLeft: normalize(30),
         fontSize: 35,
         fontWeight: '600',

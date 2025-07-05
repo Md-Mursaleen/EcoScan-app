@@ -8,7 +8,7 @@
     "assets": [
       "./assets/fonts/"
     ],
-    "scheme": "ecoscan",
+    "scheme": "com.ecoscan.app",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "plugins": [

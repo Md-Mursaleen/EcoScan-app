@@ -37,7 +37,7 @@ const TabNavigator = () => {
 
 export default function AppNavigator() {
     return (
-        <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='Splash'>
+        <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='Welcome'>
             <Stack.Screen name='Splash' component={SplashScreen} />
             <Stack.Screen name='Welcome' component={WelcomeScreen} />
             <Stack.Screen name='Login' component={LoginScreen} />
@@ -48,7 +48,7 @@ export default function AppNavigator() {
 
 const styles = StyleSheet.create({
     tabBarStyle: {
-        minHeight: 80,
+        minHeight: 100,
         backgroundColor: '#FFFFFF',
         borderTopWidth: StyleSheet.hairlineWidth,
     },
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         fontFamily: 'PlusJakartaBold',
         color: '#1F4E58',
-        lineHeight: 14,
+        lineHeight: 22,
         letterSpacing: 0.8,
         textTransform: 'uppercase',
     },

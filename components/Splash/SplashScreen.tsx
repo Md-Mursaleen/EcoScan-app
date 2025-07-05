@@ -29,6 +29,7 @@ const SplashScreen = () => {
         const hasShownWelcome = await AsyncStorage.getItem('hasShownWelcome');
         const signedUserData = await AsyncStorage.getItem('signedUserData');
         const signedData = JSON.parse(signedUserData);
+        console.log('hasShownWelcome:', hasShownWelcome);
 
         if (hasShownWelcome === null) {
             navigation.dispatch(StackActions.replace('Welcome'));
