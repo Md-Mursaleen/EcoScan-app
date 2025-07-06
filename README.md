@@ -248,15 +248,15 @@ Thank you for reviewing **EcoScan**. Let’s make sustainability accessible, act
 
 ### Splash Screen
 
-![Splash Screen](./screenshots/splash.png)
+<img src="./screenshots/splash.png" alt="Splash Screen" width="300"/>
 
 ### Welcome Screen
 
-![Welcome Screen](./screenshots/welcome.png)
+<img src="./screenshots/welcome.png" alt="Welcome Screen" width="300"/>
 
 ### Login Screen
 
-![Login Screen](./screenshots/login.png)
+<img src="./screenshots/login.png" alt="Login Screen" width="300"/>
 
 ### Home Screen
 
@@ -264,8 +264,8 @@ Thank you for reviewing **EcoScan**. Let’s make sustainability accessible, act
 
 ### Details Screen
 
-![Details Screen](./screenshots/details.png)
+<img src="./screenshots/details.png" alt="Details Screen" width="300"/>
 
 ### Redeem Screen
 
-![Redeem Screen](./screenshots/redeem.png)
+<img src="./screenshots/redeem.png" alt="Redeem Screen" width="300"/>
