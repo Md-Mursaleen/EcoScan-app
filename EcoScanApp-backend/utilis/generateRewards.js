@@ -9,6 +9,7 @@ async function generateRewards(points) {
                     Each reward should be unique, eco-conscious, and cost less than or equal to the user's points. 
                     Format your response as a JSON array with each object having:
 
+                        - id (string, unique identifier) e.g., "1", "2"
                         - title (string)
                         - requiredPoints (number)
                         - description (string)

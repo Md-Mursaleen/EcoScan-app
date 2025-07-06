@@ -1,28 +1,33 @@
-const estimateCarbonScores = require('../utilis/carbonEstimator');
-const fallbackScores = require('../data/fallbackScores');
+const estimateCarbonAndEcoPoints = require('../utilis/carbonEstimator');
+const fallbackScores = require('../data/carbonScores');
+const fallbackEcoPoints = require('../data/ecoPoints');
 
 async function scoreCalculator(items) {
-    let carbonScores = {};
+    let estimatedCarbonAndEcoPoints = {};
 
     try {
-        carbonScores = await estimateCarbonScores(items);
+        estimatedCarbonAndEcoPoints = await estimateCarbonAndEcoPoints(items);
     } catch (error) {
-        console.error('Failed to estimate carbon scores using OpenAI. Falling back to static scores.');
+        console.error('Failed to estimate carbon scores and eco points using OpenAI. Falling back to static values.');
         console.error(error.message || error);
     }
 
-    let totalScore = 0;
+    let totalCarbonScore = 0;
+    let totalEcoPoints = 0;
     const itemDetails = [];
 
     items.forEach(item => {
-        const score = carbonScores[item] || fallbackScores[item] || 5;
-        totalScore = totalScore + score;
-        itemDetails.push({ name: item, carbonScore: score });
+        const estimatedItem = estimatedCarbonAndEcoPoints[item] || {};
+
+        const carbonScore = estimatedItem.carbonScore || fallbackScores[item] || 5;
+        const ecoPoints = estimatedItem.ecoPoints || fallbackEcoPoints[item] || (carbonScore * 10);
+
+        totalCarbonScore = totalCarbonScore + carbonScore;
+        totalEcoPoints = totalEcoPoints + ecoPoints;
+        itemDetails.push({ name: item, carbonScore, ecoPoints });
     });
 
-    const ecoPoints = totalScore * 10;
-
-    return { totalScore, ecoPoints, itemDetails };
+    return { itemDetails, totalCarbonScore, totalEcoPoints };
 }
 
 module.exports = scoreCalculator;

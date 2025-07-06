@@ -12,10 +12,10 @@ import axios from 'axios';
 type RootStackParamList = {
     Details: {
         image: ImageData;
-        items: { name: string; carbonScore: number }[];
-        totalScore: number;
-        ecoPoints: number;
-        rewards: { title: string; requiredPoints: number; description: string }[];
+        items: { name: string; carbonScore: number; ecoPoints: number }[];
+        totalCarbonScore: number;
+        totalEcoPoints: number;
+        rewards: { id: string; title: string; requiredPoints: number; description: string }[];
     };
 };
 
@@ -26,8 +26,8 @@ type DetailsScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 const DetailsScreen = () => {
     const navigation = useNavigation<DetailsScreenNavigationProp>();
     const route = useRoute<DetailsScreenRouteProp>();
-    const { image, items, totalScore, ecoPoints, rewards } = route.params;
-    console.log('DetailsScreen', { image, items, totalScore, ecoPoints, rewards });
+    // const { image, items, totalScore, ecoPoints, rewards } = route.params;
+    // console.log('DetailsScreen', { image, items, totalScore, ecoPoints, rewards });
 
     return (
         <View style={styles.container}>

@@ -18,10 +18,10 @@ type ImageData = {
 type RootStackParamList = {
     Details: {
         image: ImageData;
-        items: { name: string; carbonScore: number }[];
-        totalScore: number;
-        ecoPoints: number;
-        rewards: { title: string; requiredPoints: number; description: string }[];
+        items: { name: string; carbonScore: number; ecoPoints: number }[];
+        totalCarbonScore: number;
+        totalEcoPoints: number;
+        rewards: { id: string; title: string; requiredPoints: number; description: string }[];
     };
 };
 
@@ -33,8 +33,8 @@ const HomeScreen = () => {
     const [image, setImage] = useState<ImageData | null>(null);
     const [progress, setProgress] = useState(0);
     const [items, setItems] = useState([]);
-    const [totalScore, setTotalScore] = useState(0);
-    const [ecoPoints, setEcoPoints] = useState(0);
+    const [totalCarbonScore, setTotalCarbonScore] = useState(0);
+    const [totalEcoPoints, setTotalEcoPoints] = useState(0);
     const [rewards, setRewards] = useState([]);
 
     const handlePickImage = async () => {
@@ -84,7 +84,7 @@ const HomeScreen = () => {
             } as any);
             console.log('Uploading image:', JSON.stringify(formData));
 
-            const response = await axios.post('http://192.168.0.111:8000/analyze', formData, {
+            const response = await axios.post('http://192.168.0.111:8000/analysis', formData, {
                 headers: {
                     Accept: 'application/json',
                     'Content-Type': 'multipart/form-data',
@@ -92,12 +92,12 @@ const HomeScreen = () => {
             });
             console.log('Upload response:', response.data);
 
-            const { items, totalScore, ecoPoints } = response.data;
+            const { items, totalCarbonScore, totalEcoPoints } = response.data;
             setItems(items);
-            setTotalScore(totalScore);
-            setEcoPoints(ecoPoints);
+            setTotalCarbonScore(totalCarbonScore);
+            setTotalEcoPoints(totalEcoPoints);
 
-            const rewardsResponse = await axios.get(`http://192.168.0.111:8000/rewards?points=${ecoPoints}`);
+            const rewardsResponse = await axios.get(`http://192.168.0.111:8000/rewards?points=${totalEcoPoints}`);
 
             const rewards = rewardsResponse.data.rewards;
             setRewards(rewards);
@@ -121,8 +121,8 @@ const HomeScreen = () => {
         navigation.navigate('Details', {
             image,
             items,
-            totalScore,
-            ecoPoints,
+            totalCarbonScore,
+            totalEcoPoints,
             rewards,
         });
     };

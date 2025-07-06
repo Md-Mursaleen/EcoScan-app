@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 
-const analyzeRoute = require('./routes/analyze');
+const analysisRoute = require('./routes/analysis');
 const rewardsRoute = require('./routes/rewards');
 
 const app = express();
@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/analyze', analyzeRoute);
+app.use('/analysis', analysisRoute);
 app.use('/rewards', rewardsRoute);
 
 app.get('/', (req, res) => {
