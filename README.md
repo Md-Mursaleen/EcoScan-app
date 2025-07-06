@@ -73,7 +73,7 @@ OPENAI_API_KEY=your_openai_api_key
 
 ---
 
-## 📱 Application Flow
+## Application Flow
 
 1. Users upload or scan a clothing image.
 2. The backend sends the image to OpenAI GPT-4o Vision API.
@@ -104,7 +104,7 @@ These values are stored in static JSON files under `data/` and applied via backe
 
 ---
 
-## 🖼 Key Screens
+## Key Screens
 
 ### 🏠 Home Screen
 
@@ -121,7 +121,7 @@ These values are stored in static JSON files under `data/` and applied via backe
 
 ---
 
-## 🌟 Enhancement Proposals
+## Enhancement Proposals
 
 ### 🔧 Technical Scaling
 
@@ -225,7 +225,7 @@ EcoScanApp/
 
 A working demo of the application has been recorded and uploaded to Google Drive.
 
-🔗 [Watch Demo on Google Drive](https://drive.google.com/file/d/1EHE6KVAO9PfDBVoNN7vtA_d9M01SwZeN/view?usp=drivesdk)
+[Watch Demo on Google Drive](https://drive.google.com/file/d/1EHE6KVAO9PfDBVoNN7vtA_d9M01SwZeN/view?usp=drivesdk)
 
 ---
 
