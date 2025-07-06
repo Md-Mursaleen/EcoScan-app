@@ -243,3 +243,29 @@ Made with 💚 by **Md Mursaleen**
 > “What you wear shouldn't cost the Earth.”
 
 Thank you for reviewing **EcoScan**. Let’s make sustainability accessible, actionable and stylish — one scan at a time.
+
+## 📸 App Screenshots
+
+### Splash Screen
+
+![Splash Screen](./screenshots/splash.png)
+
+### Welcome Screen
+
+![Welcome Screen](./screenshots/welcome.png)
+
+### Login Screen
+
+![Login Screen](./screenshots/login.png)
+
+### Home Screen
+
+![Home Screen](./screenshots/home.png)
+
+### Details Screen
+
+![Details Screen](./screenshots/details.png)
+
+### Redeem Screen
+
+![Redeem Screen](./screenshots/redeem.png)
