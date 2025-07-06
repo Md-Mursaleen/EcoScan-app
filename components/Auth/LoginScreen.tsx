@@ -44,9 +44,9 @@ const LoginScreen = () => {
         if (response?.type === 'success') {
             const { authentication } = response;
             setAccessToken(authentication?.accessToken);
-            if (accessToken) {
+            if (authentication?.accessToken) {
                 fetchUserData();
-                AsyncStorage.setItem('signedUserData', JSON.stringify({ user: userInfo, loggedIn: true }));
+                AsyncStorage.setItem('signedUserData', JSON.stringify({ user: userInfo, accessToken, loggedIn: true }));
                 navigation.navigate('Tab');
             }
         }
