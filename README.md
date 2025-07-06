@@ -260,7 +260,7 @@ Thank you for reviewing **EcoScan**. Let’s make sustainability accessible, act
 
 ### Home Screen
 
-![Home Screen](./screenshots/home.png)
+<img src="./screenshots/home.png" alt="Home Screen" width="300"/>
 
 ### Details Screen
 
