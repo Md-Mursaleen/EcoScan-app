@@ -85,7 +85,9 @@ const DetailsScreen = () => {
                         <View style={{ maxWidth: '82%' }}>
                             <Text style={styles.rewardTitleTextStyle}>{item.title}</Text>
                             <Text style={styles.rewardDescriptionTextStyle}>{item.description}</Text>
-                            <Text style={styles.availabilityTextStyle}>Available to Redeem</Text>
+                            <View style={styles.availabilityTextContainer}>
+                                <Text style={styles.availabilityTextStyle}>Redeem</Text>
+                            </View>
                         </View>
                         <Image source={require('../../assets/images/gift-image.png')} style={styles.giftImageStyle} />
                     </View>
@@ -207,10 +209,19 @@ const styles = StyleSheet.create({
         fontFamily: 'PlusJakartaMedium',
         color: '#555555',
     },
+    availabilityTextContainer: {
+        padding: 6,
+        width: '35%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#32CD32',
+        borderRadius: 8,
+    },
     availabilityTextStyle: {
         fontSize: 13,
         fontWeight: '500',
         fontFamily: 'PlusJakartaMedium',
-        color: '#32CD32',
+        color: '#FFFFFF',
+        lineHeight: 20,
     },
 });

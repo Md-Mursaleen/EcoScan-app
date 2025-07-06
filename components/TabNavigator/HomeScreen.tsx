@@ -72,7 +72,7 @@ const HomeScreen = () => {
                 clearInterval(interval);
             }
             setProgress(progressVal);
-        }, 100);
+        }, 350);
 
         try {
             const formData = new FormData();
