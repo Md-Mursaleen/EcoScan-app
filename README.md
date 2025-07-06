@@ -135,7 +135,6 @@ To transform EcoScan into a scalable, production-ready platform, here are propos
 - **Asynchronous Processing**: Offload image classification and OpenAI Vision API calls to background workers using tools like **BullMQ** (Node.js), **Celery** (Python), or a job queue service.
 - **Rate Limiting & Load Balancing**: Use Nginx or an API gateway like **Kong** to throttle and distribute requests efficiently.
 - **Cloud Scalability**: Deploy backend to auto-scaling environments like **AWS Lambda**, **Google Cloud Run**, or **Azure App Service**.
-- **Use CDN for Static Assets**: Cache reward images and animations using services like Cloudflare or AWS CloudFront.
 
 ---
 
