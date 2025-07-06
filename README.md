@@ -95,10 +95,10 @@ If the GPT-4o Vision API fails or is skipped, fallback logic assigns predefined 
 
 | 👕 Clothing Item | 🌍 Carbon Score (kg CO₂) | 🌱 Eco Points |
 | ---------------- | ------------------------ | ------------- |
-| T-shirt          | 5                        | 10            |
-| Jeans            | 10                       | 20            |
-| Jacket           | 15                       | 30            |
-| Shoes            | 8                        | 16            |
+| T-shirt          | 5                        | 50            |
+| Jeans            | 10                       | 100           |
+| Jacket           | 15                       | 200           |
+| Shoes            | 8                        | 80            |
 
 These values are stored in static JSON files under `data/` and applied via backend logic.
 
@@ -133,7 +133,6 @@ To transform EcoScan into a scalable, production-ready platform, here are propos
 
 - **Move to a Microservices Architecture**: Break down monolithic logic (e.g., image analysis, scoring, rewards) into separate services to ensure independent scaling.
 - **Asynchronous Processing**: Offload image classification and OpenAI Vision API calls to background workers using tools like **BullMQ** (Node.js), **Celery** (Python), or a job queue service.
-- **Rate Limiting & Load Balancing**: Use Nginx or an API gateway like **Kong** to throttle and distribute requests efficiently.
 - **Cloud Scalability**: Deploy backend to auto-scaling environments like **AWS Lambda**, **Google Cloud Run**, or **Azure App Service**.
 
 ---
@@ -141,8 +140,7 @@ To transform EcoScan into a scalable, production-ready platform, here are propos
 ### 2. 🌍 Improve the Carbon Scoring Model
 
 - **Material-based Scoring**: Extend the model to differentiate between cotton, polyester, wool, etc., each with distinct CO₂ footprints.
-- **Condition & Usage Factor**: Allow users to input whether the clothing is new, second-hand, or upcycled to adjust scores accordingly.
-- **Brand & Manufacturing Region Data**: Incorporate brand-level sustainability data (e.g., sourced from open databases or APIs).
+- **Condition & Usage Factor**: Allow users to input whether the clothing is new, second-hand or upcycled to adjust scores accordingly.
 - **Machine Learning Model**: In future iterations, train a custom model on labeled image datasets to predict material + item type more accurately than GPT-4 alone.
 
 ---
@@ -161,7 +159,6 @@ To transform EcoScan into a scalable, production-ready platform, here are propos
 - **Real-time Product Data**: Integrate with clothing databases like **Good On You**, **Open Apparel Registry**, or **Sustainable Apparel Coalition**.
 - **Geo-based Reward Integration**: Use Google Maps API to show nearby stores or platforms accepting eco-points or offering sustainable options.
 - **Weather + Sustainability Tips**: Pull real-time weather data to suggest eco-friendly clothing choices.
-- **Carbon Offset Providers**: Integrate with services like **Pachama** or **Ecologi** to allow users to directly offset their footprint using earned points.
 
 ---
 
