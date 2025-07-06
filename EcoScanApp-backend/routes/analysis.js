@@ -2,7 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const router = express.Router();
 const openAIClassifier = require('../utilis/openAIClassifier');
-const scoreCalculator = require('../utilis/scoreCalculator');
+const scoreCalculator = require('../utilis/carbonAndEcoPointsCalculator');
 const mockClassifier = require('../utilis/mockClassifier');
 
 const storage = multer.memoryStorage();

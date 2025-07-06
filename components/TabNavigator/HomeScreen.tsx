@@ -70,7 +70,6 @@ const HomeScreen = () => {
             progressVal = progressVal + 0.05;
             if (progressVal >= 1) {
                 clearInterval(interval);
-                setScreen('complete');
             }
             setProgress(progressVal);
         }, 100);
@@ -101,6 +100,7 @@ const HomeScreen = () => {
 
             const rewards = rewardsResponse.data.rewards;
             setRewards(rewards);
+            setScreen('complete');
         } catch (error) {
             clearInterval(interval);
             setScreen('initial');
