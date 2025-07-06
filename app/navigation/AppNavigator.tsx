@@ -9,6 +9,7 @@ import ProfileScreen from '@/components/TabNavigator/ProfileScreen';
 import SplashScreen from '@/components/Splash/SplashScreen';
 import LoginScreen from '@/components/Auth/LoginScreen';
 import DetailsScreen from '@/components/TabNavigator/DetailsScreen';
+import RedeemScreen from '@/components/TabNavigator/RedeemScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -44,6 +45,7 @@ export default function AppNavigator() {
             <Stack.Screen name='Login' component={LoginScreen} />
             <Stack.Screen name='Tab' component={TabNavigator} />
             <Stack.Screen name='Details' component={DetailsScreen} />
+            <Stack.Screen name='Redeem' component={RedeemScreen} />
         </Stack.Navigator>
     );
 }

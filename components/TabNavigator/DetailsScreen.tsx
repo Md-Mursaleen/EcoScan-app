@@ -29,6 +29,7 @@ type RootStackParamList = {
         totalEcoPoints: number;
         rewards: { id: string; title: string; requiredPoints: number; description: string }[];
     };
+    Redeem: undefined;
 };
 
 type DetailsScreenRouteProp = RouteProp<RootStackParamList, 'Details'>;
@@ -53,6 +54,10 @@ const DetailsScreen = () => {
             offsetY: 4,
         },
     }));
+
+    const handleNavigation = () => {
+        navigation.navigate('Redeem');
+    };
 
     return (
         <ScrollView style={styles.container}>
@@ -85,9 +90,9 @@ const DetailsScreen = () => {
                         <View style={{ maxWidth: '82%' }}>
                             <Text style={styles.rewardTitleTextStyle}>{item.title}</Text>
                             <Text style={styles.rewardDescriptionTextStyle}>{item.description}</Text>
-                            <View style={styles.availabilityTextContainer}>
+                            <Pressable onPress={handleNavigation} style={styles.availabilityTextContainer}>
                                 <Text style={styles.availabilityTextStyle}>Redeem</Text>
-                            </View>
+                            </Pressable>
                         </View>
                         <Image source={require('../../assets/images/gift-image.png')} style={styles.giftImageStyle} />
                     </View>
