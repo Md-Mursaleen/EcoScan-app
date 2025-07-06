@@ -91,7 +91,7 @@ OPENAI_API_KEY=your_openai_api_key
 
 ## 🌱 Carbon Score Assumptions
 
-If the GPT-4o Vision API fails or is skipped, fallback logic assigns predefined scores:
+If the GPT-4o Vision API fails or is skipped, fallback logic assigns predefined scores(ex: some values are shown below):
 
 | 👕 Clothing Item | 🌍 Carbon Score (kg CO₂) | 🌱 Eco Points |
 | ---------------- | ------------------------ | ------------- |
@@ -99,6 +99,8 @@ If the GPT-4o Vision API fails or is skipped, fallback logic assigns predefined 
 | Jeans            | 10                       | 100           |
 | Jacket           | 15                       | 200           |
 | Shoes            | 8                        | 80            |
+| Dress            | 12                       | 120           |
+| Sweater          | 15                       | 150           |
 
 These values are stored in static JSON files under `data/` and applied via backend logic.
 
