@@ -147,7 +147,7 @@ To transform EcoScan into a scalable, production-ready platform, here are propos
 
 ---
 
-### 3. ✨ Enhance User Experience
+### 3. 🚀 Enhance User Experience
 
 - **Historical Impact Tracking**: Let users see their cumulative carbon savings over time.
 - **Sustainability Comparisons**: Compare scanned items to eco-friendlier alternatives, giving users actionable swaps.
