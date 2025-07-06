@@ -46,6 +46,8 @@ const HomeScreen = () => {
                 fileName: asset.fileName || asset.uri.split('/').pop() || 'unknown',
                 type: asset.type || 'image',
             });
+        } else {
+            alert('No image selected. Please try again.');
         }
     };
 
@@ -58,6 +60,8 @@ const HomeScreen = () => {
                 fileName: asset.fileName || asset.uri.split('/').pop() || 'unknown',
                 type: asset.type || 'image',
             });
+        } else {
+            alert('No photo captured. Please try again.');
         }
     };
 

@@ -7,6 +7,7 @@ import { LogBox } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import * as SplashScreen from 'expo-splash-screen';
 import AppNavigator from './navigation/AppNavigator';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 LogBox.ignoreAllLogs();
 
