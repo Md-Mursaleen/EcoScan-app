@@ -91,7 +91,7 @@ OPENAI_API_KEY=your_openai_api_key
 
 ## 🌱 Carbon Score Assumptions
 
-If the GPT-4o Vision API fails or is skipped, fallback logic assigns predefined scores(ex: some values are shown below):
+If the GPT-4o Vision API fails or is skipped, fallback logic assigns predefined scores and points:
 
 | 👕 Clothing Item | 🌍 Carbon Score (kg CO₂) | 🌱 Eco Points |
 | ---------------- | ------------------------ | ------------- |
@@ -231,9 +231,9 @@ A working demo of the application has been recorded and uploaded to Google Drive
 
 Made with 💚 by **Md Mursaleen**
 
-- 🔗 [LinkedIn](https://www.linkedin.com/in/md-mursaleen085/)
-- 💻 [GitHub](https://github.com/Md-Mursaleen)
-- 📧 [Email](mailto:mursaleenansari085@gmail.com)
+- [LinkedIn](https://www.linkedin.com/in/md-mursaleen085/)
+- [GitHub](https://github.com/Md-Mursaleen)
+- [Email](mailto:mursaleenansari085@gmail.com)
 
 ---
 
