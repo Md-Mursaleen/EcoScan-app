@@ -4,12 +4,16 @@ EcoScan is a mobile application ddesigned to help users understand the environme
 
 ## 🔧 Tech Stack
 
-| Layer                 | Technology                                                         |
-| --------------------- | ------------------------------------------------------------------ |
-| **Frontend**          | React Native (with Expo)                                           |
-| **Backend**           | Node.js with Express                                               |
-| **Image Recognition** | OpenAI GPT-4o Vision API                                           |
-| **Libraries**         | Axios, Lottie, Multer, FormData, React Native Pie Chart, Expo APIs |
+| Layer                  | Technology                                                                               |
+| ---------------------  | ---------------------------------------------------------------------------------------- |
+| **Frontend**           | React Native (with Expo), TypeScript                                                     |
+| **Backend**            | Node.js with Express                                                                     |
+| **AI Integration**     | OpenAI GPT-4o API via custom utilities:                                                  |
+|                        | - `openAIClassifier`: Identifies clothing items from uploaded images                     |
+|                        | - `carbonAndEcoPointsEstimator`: Estimates carbon footprint using AI or fallback data    |
+|                        | - `generateRewards`: Suggests eco-rewards based on total eco-points                      |
+| **Frontend Libraries** | Axios, React Navigation, Lottie, React Native Pie Chart, Expo APIs                       |
+| **Backend Libraries**  | Express, Multer, Dotenv, OpenAI SDK, FormData                                            |
 
 ---
 
@@ -30,7 +34,6 @@ Run the following commands:
 
 - **Backend**:
   ```bash
-  cd EcoScanApp
   cd EcoScanApp-backend
   npm install
   ```
@@ -49,7 +52,7 @@ Run the following commands:
   ```
 - **Frontend**: Start the frontend application:
   ```bash
-  npx expo start --dev-client  # here you first need to create an EAS build (custom dev client app)
+  npx expo start --dev-client  # here you need to create an EAS build (custom dev client app)
   npx expo start               # if using Expo Go app
   ```
 
@@ -101,6 +104,20 @@ If the GPT-4o Vision API fails or is skipped, fallback logic assigns predefined 
 | Shoes            | 8                        | 80            |
 | Dress            | 12                       | 120           |
 | Sweater          | 15                       | 150           |
+| Hoodie           | 14                       | 140           |
+| Shorts           | 6                        | 60            |
+| Skirt            | 7                        | 70            |
+| Blazer           | 18                       | 180           |
+| Coat             | 22                       | 220           |
+| Tank Top         | 4                        | 40            |
+| Scarf            | 3                        | 30            |
+| Hat              | 4                        | 40            |
+| Gloves           | 3                        | 30            |
+| Socks            | 2                        | 20            |
+| Sneakers         | 9                        | 90            |
+| Boots            | 11                       | 110           |
+| Leggings         | 6                        | 60            |
+| Tracksuit        | 13                       | 130           |
 
 These values are stored in static JSON files under `data/` and applied via backend logic.
 
