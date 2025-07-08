@@ -17,6 +17,27 @@ EcoScan is a mobile application ddesigned to help users understand the environme
 
 ---
 
+## High-Level Architecture Diagram
+             +-------------------+
+             |  Expo Frontend    |
+             | (React Native App)|
+             +--------+----------+
+                      |
+                      | HTTPS (Axios)
+                      v
+             +--------+----------+
+             |  Express Backend  |
+             |   (Node.js App)   |
+             +--------+----------+
+                      |
+   +------------------+-----------------------------+
+   |            |               |                   |
+   v            v               v                   v
+OpenAI Vision  Static JSON   Rewards Generation  Carbon Estimator
+API (GPT-4o)    (fallback)   Logic (GPT-4o)      Logic (GPT-4o)
+
+---
+
 ## 🚀 Setup Instructions
 
 ### 1. **Clone the Repository**
