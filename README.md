@@ -260,7 +260,6 @@ Made with 💚 by **Md Mursaleen**
 
 Thank you for reviewing **EcoScan**. Let’s make sustainability accessible, actionable and stylish — one scan at a time.
 
-&nbsp;  
 &nbsp; 
 
 ## 📸 App Screenshots
