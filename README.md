@@ -18,7 +18,7 @@ EcoScan is a mobile application ddesigned to help users understand the environme
 ---
 
 ## High-Level Architecture Diagram
-                         +-------------------+
+             +-------------------+
              |  Expo Frontend    |
              | (React Native App)|
              +--------+----------+
