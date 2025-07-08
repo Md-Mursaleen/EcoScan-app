@@ -183,7 +183,7 @@ These enhancements would not only scale the application for enterprise usage but
 ## 🌐 Deployment
 
 The frontend (mobile app) APK has been built and shared for review.  
-**However, please note:** The backend is currently not deployed and frontend uses a local network (LAN) IP address for API calls (e.g., `http://192.168.x.x:8000`). As a result, the app's core features (e.g., image scanning, carbon scoring analysis) will not function unless the backend is also running locally on the same network.
+Backend is currently deployed on Render. The mobile app has been updated to use this deployed backend, so all core features (e.g., image scanning, carbon scoring analysis) are fully functional without needing to run the backend locally.
 
 ### 🔧 To run the backend locally:
 
@@ -198,13 +198,13 @@ The frontend (mobile app) APK has been built and shared for review.
    ```
    This will run the server on `http://localhost:8000`.
 
-> 🔁 For full functionality, replace the LAN IP in the frontend with your your machine LAN IP or use own deployed backend URL or use tools like [ngrok](https://ngrok.com/) for temporary tunneling during testing.
+> 🔁 During development, you can also use tools like [ngrok](https://ngrok.com/) for temporary secure tunneling during testing.
 
 
 ### 🚀 Future Deployment Recommendations
 
 - **Frontend**: Use [Expo EAS](https://docs.expo.dev/eas/) to build to build production-ready APKs and submit the app to the Play Store or App Store.
-- **Backend**: Use Render, Railway, or Heroku to host the Express server and expose `/analysis` and `/rewards` endpoints.
+- **Backend**: The backend is currently hosted on Render.
 
 ---
 
