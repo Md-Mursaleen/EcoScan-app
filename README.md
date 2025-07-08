@@ -182,7 +182,7 @@ These enhancements would not only scale the application for enterprise usage but
 
 ## 🌐 Deployment
 
-The frontend (mobile app) APK has been built and shared for review. Backend is currently deployed on Render. The mobile app has been updated to use this deployed backend, so all core features (e.g., image scanning, carbon scoring analysis) are fully functional without needing to run the backend locally.
+The frontend (mobile app) APK has been built and shared for review. The backend is currently deployed on Render and the mobile app has been updated to use this deployed backend, so all core features (e.g., image scanning, carbon scoring analysis) are fully functional without needing to run the backend locally.
 
 ### 🔧 To run the backend locally:
 
@@ -215,6 +215,7 @@ EcoScanApp/
 │   ├── routes/              # API endpoints
 │   ├── utilis/              # GPT logic, scorers, reward logic
 │   ├── data/                # Static fallback data (JSON)
+|   ├── .env                 # Environment variables (OpenAI API key, secrets)
 │   └── app.js               # Main Express server
 │
 ├── app/_layout.tsx          # React Native entry point
@@ -223,7 +224,7 @@ EcoScanApp/
 ├── components/TabNavigator  # HomeScreen.tsx, DetailsScreen.tsx, ProfileScreen.tsx, RedeemScreen.tsx
 ├── components/Welcome       # WelcomeScreen.tsx
 ├── components/Auth          # LoginScreen.tsx
-├── components/Splash          # SplashScreen.tsx
+├── components/Splash        # SplashScreen.tsx
 └── package.json             # Project config
 ```
 
