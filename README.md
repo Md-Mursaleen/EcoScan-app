@@ -182,8 +182,7 @@ These enhancements would not only scale the application for enterprise usage but
 
 ## 🌐 Deployment
 
-The frontend (mobile app) APK has been built and shared for review.  
-Backend is currently deployed on Render. The mobile app has been updated to use this deployed backend, so all core features (e.g., image scanning, carbon scoring analysis) are fully functional without needing to run the backend locally.
+The frontend (mobile app) APK has been built and shared for review. Backend is currently deployed on Render. The mobile app has been updated to use this deployed backend, so all core features (e.g., image scanning, carbon scoring analysis) are fully functional without needing to run the backend locally.
 
 ### 🔧 To run the backend locally:
 
@@ -201,10 +200,10 @@ Backend is currently deployed on Render. The mobile app has been updated to use 
 > 🔁 During development, you can also use tools like [ngrok](https://ngrok.com/) for temporary secure tunneling during testing.
 
 
-### 🚀 Future Deployment Recommendations
+### 🚀 Deployment Recommendations
 
-- **Frontend**: Use [Expo EAS](https://docs.expo.dev/eas/) to build to build production-ready APKs and submit the app to the Play Store or App Store.
-- **Backend**: The backend is currently hosted on Render.
+- **Frontend**: Use [Expo EAS](https://docs.expo.dev/eas/) to build production-ready APKs and submit the app to the Play Store or App Store.
+- **Backend**: The backend is currently hosted on Render. Other alternatives include Railway and Heroku.
 
 ---
 
@@ -230,11 +229,17 @@ EcoScanApp/
 
 ---
 
-## 📽️ Demo
+## 📽️ Demo & APK
 
 A working demo of the application has been recorded and uploaded to Google Drive.
 
 [Watch Demo on Google Drive](https://drive.google.com/file/d/1EHE6KVAO9PfDBVoNN7vtA_d9M01SwZeN/view?usp=drivesdk)
+
+You can also try out the app by downloading the latest APK build:
+
+📦 [Download APK for Review]([https://your-apk-link-here](https://drive.google.com/file/d/1sTg6LRLXFYZ6wZsU9jEz0v3MgOtiLb_B/view?usp=drivesdk))
+
+> Make sure to allow installations from unknown sources on your Android device.
 
 ---
 
@@ -253,6 +258,8 @@ Made with 💚 by **Md Mursaleen**
 > “What you wear shouldn't cost the Earth.”
 
 Thank you for reviewing **EcoScan**. Let’s make sustainability accessible, actionable and stylish — one scan at a time.
+
+
 
 ## 📸 App Screenshots
 
