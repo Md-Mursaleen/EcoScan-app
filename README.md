@@ -146,7 +146,6 @@ These values are stored in static JSON files under `data/` and applied via backe
 
 To transform EcoScan into a scalable, production-ready platform, here are proposed enhancements categorized by technical and product aspects:
 
----
 
 ### 1. ⚙️ Scaling the Backend for Larger User Loads
 
@@ -154,7 +153,6 @@ To transform EcoScan into a scalable, production-ready platform, here are propos
 - **Asynchronous Processing**: Offload image classification and OpenAI Vision API calls to background workers using tools like **BullMQ** (Node.js), **Celery** (Python), or a job queue service.
 - **Cloud Scalability**: Deploy backend to auto-scaling environments like **AWS Lambda**, **Google Cloud Run**, or **Azure App Service**.
 
----
 
 ### 2. 🌍 Improve the Carbon Scoring Model
 
@@ -162,7 +160,6 @@ To transform EcoScan into a scalable, production-ready platform, here are propos
 - **Condition & Usage Factor**: Allow users to input whether the clothing is new, second-hand or upcycled to adjust scores accordingly.
 - **Machine Learning Model**: In future iterations, train a custom model on labeled image datasets to predict material + item type more accurately than GPT-4 alone.
 
----
 
 ### 3. 🚀 Enhance User Experience
 
@@ -171,7 +168,6 @@ To transform EcoScan into a scalable, production-ready platform, here are propos
 - **Gamification**: Add streaks, badges, and level-ups based on eco-points or reduced carbon impact.
 - **Educational Nudges**: Use push notifications or modals to share facts about sustainable fashion.
 
----
 
 ### 4. 🔌 Integrate with External APIs
 
@@ -179,7 +175,6 @@ To transform EcoScan into a scalable, production-ready platform, here are propos
 - **Geo-based Reward Integration**: Use Google Maps API to show nearby stores or platforms accepting eco-points or offering sustainable options.
 - **Weather + Sustainability Tips**: Pull real-time weather data to suggest eco-friendly clothing choices.
 
----
 
 These enhancements would not only scale the application for enterprise usage but also enrich its value as an educational and behavioral change tool in the fight against climate change.
 
