@@ -200,7 +200,6 @@ The frontend (mobile app) APK has been built and shared for review.
 
 > 🔁 For full functionality, replace the LAN IP in the frontend with your your machine LAN IP or use own deployed backend URL or use tools like [ngrok](https://ngrok.com/) for temporary tunneling during testing.
 
----
 
 ### 🚀 Future Deployment Recommendations
 
