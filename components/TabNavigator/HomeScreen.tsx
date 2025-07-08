@@ -9,6 +9,8 @@ import * as Progress from 'react-native-progress';
 import LottieView from 'lottie-react-native';
 import axios from 'axios';
 
+const BASE_URL = 'https://ecoscan-app.onrender.com';
+
 type ImageData = {
     uri: string;
     fileName: string;
@@ -87,7 +89,7 @@ const HomeScreen = () => {
             } as any);
             console.log('Uploading image:', JSON.stringify(formData));
 
-            const response = await axios.post('http://192.168.0.111:8000/analysis', formData, {
+            const response = await axios.post(`${BASE_URL}/analysis`, formData, {
                 headers: {
                     Accept: 'application/json',
                     'Content-Type': 'multipart/form-data',
@@ -100,7 +102,7 @@ const HomeScreen = () => {
             setTotalCarbonScore(totalCarbonScore);
             setTotalEcoPoints(totalEcoPoints);
 
-            const rewardsResponse = await axios.get(`http://192.168.0.111:8000/rewards?points=${totalEcoPoints}`);
+            const rewardsResponse = await axios.get(`${BASE_URL}/rewards?points=${totalEcoPoints}`);
 
             const rewards = rewardsResponse.data.rewards;
             setRewards(rewards);
