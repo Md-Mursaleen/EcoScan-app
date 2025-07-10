@@ -168,21 +168,21 @@ These values are stored in static JSON files under `data/` and applied via backe
 To transform EcoScan into a scalable, production-ready platform, here are proposed enhancements categorized by technical and product aspects:
 
 
-### 1. ⚙️ Scaling the Backend for Larger User Loads
+### 1. Scaling the Backend for Larger User Loads
 
 - **Move to a Microservices Architecture**: Break down monolithic logic (e.g., image analysis, scoring, rewards) into separate services to ensure independent scaling.
 - **Asynchronous Processing**: Offload image classification and OpenAI Vision API calls to background workers using tools like **BullMQ** (Node.js), **Celery** (Python), or a job queue service.
 - **Cloud Scalability**: Deploy backend to auto-scaling environments like **AWS Lambda**, **Google Cloud Run**, or **Azure App Service**.
 
 
-### 2. 🌍 Improve the Carbon Scoring Model
+### 2. Improve the Carbon Scoring Model
 
 - **Material-based Scoring**: Extend the model to differentiate between cotton, polyester, wool, etc., each with distinct CO₂ footprints.
 - **Condition & Usage Factor**: Allow users to input whether the clothing is new, second-hand or upcycled to adjust scores accordingly.
 - **Machine Learning Model**: In future iterations, train a custom model on labeled image datasets to predict material + item type more accurately than GPT-4 alone.
 
 
-### 3. 🚀 Enhance User Experience
+### 3. Enhance User Experience
 
 - **Historical Impact Tracking**: Let users see their cumulative carbon savings over time.
 - **Sustainability Comparisons**: Compare scanned items to eco-friendlier alternatives, giving users actionable swaps.
@@ -190,7 +190,7 @@ To transform EcoScan into a scalable, production-ready platform, here are propos
 - **Educational Nudges**: Use push notifications or modals to share facts about sustainable fashion.
 
 
-### 4. 🔌 Integrate with External APIs
+### 4. Integrate with External APIs
 
 - **Real-time Product Data**: Integrate with clothing databases like **Good On You**, **Open Apparel Registry** or **Sustainable Apparel Coalition**.
 - **Geo-based Reward Integration**: Use Google Maps API to show nearby stores or platforms accepting eco-points or offering sustainable options.
