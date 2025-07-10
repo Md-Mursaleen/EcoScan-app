@@ -17,6 +17,29 @@ EcoScan is a mobile application ddesigned to help users understand the environme
 
 ---
 
+## 📁 Project Structure
+
+```
+EcoScanApp/
+├── EcoScanApp-backend/
+│   ├── routes/              # API endpoints
+│   ├── utilis/              # GPT logic, scorers, reward logic
+│   ├── data/                # Static fallback data (JSON)
+|   ├── .env                 # Environment variables (OpenAI API key, secrets)
+│   └── app.js               # Main Express server
+│
+├── app/_layout.tsx          # React Native entry point
+├── assets/                  # Images and animations
+├── utilis/                  # UI utilities (e.g., scaling)
+├── components/TabNavigator  # HomeScreen.tsx, DetailsScreen.tsx, ProfileScreen.tsx, RedeemScreen.tsx
+├── components/Welcome       # WelcomeScreen.tsx
+├── components/Auth          # LoginScreen.tsx
+├── components/Splash        # SplashScreen.tsx
+└── package.json             # Project config
+```
+
+---
+
 ## 🚀 Setup Instructions
 
 ### 1. **Clone the Repository**
@@ -142,8 +165,6 @@ These values are stored in static JSON files under `data/` and applied via backe
 
 ## Enhancement Proposals
 
-### 🔧 Technical Scaling
-
 To transform EcoScan into a scalable, production-ready platform, here are proposed enhancements categorized by technical and product aspects:
 
 
@@ -207,29 +228,6 @@ The frontend (mobile app) APK has been built and shared for review. The backend 
 
 ---
 
-## 📁 Project Structure
-
-```
-EcoScanApp/
-├── EcoScanApp-backend/
-│   ├── routes/              # API endpoints
-│   ├── utilis/              # GPT logic, scorers, reward logic
-│   ├── data/                # Static fallback data (JSON)
-|   ├── .env                 # Environment variables (OpenAI API key, secrets)
-│   └── app.js               # Main Express server
-│
-├── app/_layout.tsx          # React Native entry point
-├── assets/                  # Images and animations
-├── utilis/                  # UI utilities (e.g., scaling)
-├── components/TabNavigator  # HomeScreen.tsx, DetailsScreen.tsx, ProfileScreen.tsx, RedeemScreen.tsx
-├── components/Welcome       # WelcomeScreen.tsx
-├── components/Auth          # LoginScreen.tsx
-├── components/Splash        # SplashScreen.tsx
-└── package.json             # Project config
-```
-
----
-
 ## 📽️ Demo & APK
 
 A working demo of the application has been recorded and uploaded to Google Drive.
@@ -251,7 +249,6 @@ Made with 💚 by **Md Mursaleen**
 - [LinkedIn](https://www.linkedin.com/in/md-mursaleen085/)
 - [GitHub](https://github.com/Md-Mursaleen)
 - [Email](mailto:mursaleenansari085@gmail.com)
-- 📞 Phone: +91-7982928791
 
 ---
 
