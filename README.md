@@ -148,14 +148,14 @@ These values are stored in static JSON files under `data/` and applied via backe
 
 ## Key Screens
 
-### 🏠 Home Screen
+### Home Screen
 
 - Upload or capture image
 - Visual scan animation
 - Progress indicator and file type icon
 - Handles scanning and success states
 
-### 📊 Details Screen
+### Details Screen
 
 - Pie chart breakdown of carbon footprint
 - Summary of total score and eco-points
