@@ -20,7 +20,7 @@ type LoginScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
 const LoginScreen = () => {
     const navigation = useNavigation<LoginScreenNavigationProp>();
-    const [accessToken, setAccessToken] = useState();
+    const [accessToken, setAccessToken] = useState<string>();
     const [userInfo, setUserInfo] = useState();
     const [request, response, promptAsync] = Google.useAuthRequest({
         androidClientId: "1862782058-q5384nqr4o1mj17nscs5nqavgav50ptr.apps.googleusercontent.com",
@@ -30,24 +30,27 @@ const LoginScreen = () => {
 
     console.log('Redirect URI:', request?.redirectUri);
 
-    async function fetchUserData() {
-        let response = await fetch("https://www.googleapis.com/userinfo/v2/me", {
-            headers: { Authorization: `Bearer ${accessToken}` }
-        });
-
-        response.json().then((data) => {
+    const fetchUserData = async () => {
+        try {
+            const response = await fetch("https://www.googleapis.com/userinfo/v2/me", {
+                headers: { Authorization: `Bearer ${accessToken}` }
+            });
+            const data = await response.json();
             setUserInfo(data);
-        });
+
+            AsyncStorage.setItem('signedUserData', JSON.stringify({ user: data, accessToken: accessToken, loggedIn: true }));
+            navigation.navigate('Tab');
+        } catch (error) {
+            console.error('Failed to fetch user info:', error);
+        }
     };
 
     useEffect(() => {
         if (response?.type === 'success') {
             const { authentication } = response;
-            setAccessToken(authentication?.accessToken);
             if (authentication?.accessToken) {
+                setAccessToken(authentication?.accessToken);
                 fetchUserData();
-                AsyncStorage.setItem('signedUserData', JSON.stringify({ user: userInfo, accessToken, loggedIn: true }));
-                navigation.navigate('Tab');
             }
         }
     }, [response]);

@@ -73,12 +73,13 @@ const HomeScreen = () => {
 
         let progressVal = 0;
         const interval = setInterval(() => {
-            progressVal = progressVal + 0.05;
-            if (progressVal >= 1) {
+            progressVal = progressVal + 0.01;
+            if (progressVal >= 0.9) {
                 clearInterval(interval);
+            } else {
+                setProgress(progressVal);
             }
-            setProgress(progressVal);
-        }, 350);
+        }, 100);
 
         try {
             const formData = new FormData();
@@ -106,9 +107,15 @@ const HomeScreen = () => {
 
             const rewards = rewardsResponse.data.rewards;
             setRewards(rewards);
-            setScreen('complete');
+            clearInterval(interval);
+            setProgress(1);
+
+            setTimeout(() => {
+                setScreen('complete');
+            }, 500);
         } catch (error) {
             clearInterval(interval);
+            setProgress(0);
             setScreen('initial');
             console.error('Upload error:', error);
             alert('Upload failed. Please try again.');
