@@ -9,7 +9,7 @@ EcoScan is a mobile application ddesigned to help users understand the environme
 | **Frontend**           | React Native (with Expo), TypeScript                                                                                 |
 | **Backend**            | Node.js with Express                                                                                                 |
 | **AI Integration**     | OpenAI GPT-4o API via custom utilities:                                                                              |
-|                        | - `openAIClassifier`: Identifies clothing items from uploaded images (with fallback to mock classifier if API fails) |
+|                        | - `openAIClassifier`: Identifies clothing items from uploaded images (with fallback to `mockClassifier` if API fails) |
 |                        | - `carbonAndEcoPointsEstimator`: Estimates carbon footprint using AI or fallback data                                |
 |                        | - `generateRewards`: Suggests eco-rewards based on total eco-points                                                  |
 | **Frontend Libraries** | Axios, React Navigation, Lottie, React Native Pie Chart, Expo Image Picker, Expo File System, React Native Progress  |
@@ -23,7 +23,7 @@ EcoScan is a mobile application ddesigned to help users understand the environme
 EcoScanApp/
 ├── EcoScanApp-backend/
 │   ├── routes/              # API endpoints
-│   ├── utilis/              # Classifier logic, scorers logic, rewards logic
+│   ├── utilis/              # Classifiers logic, scorers logic, rewards logic
 │   ├── data/                # Static fallback data (JSON)
 |   ├── .env                 # Environment variables (OpenAI API key, secrets)
 │   └── app.js               # Main Express server
@@ -166,13 +166,13 @@ These values are stored in static JSON files under `data/` and applied via backe
 
 ## Enhancement Proposals
 
-To transform EcoScan into a scalable, production-ready platform, here are proposed enhancements categorized by technical and product aspects:
+To transform EcoScan into a scalable and production-ready platform, here are proposed enhancements combining technical and product aspects:
 
 
 ### 1. Scaling the Backend for Larger User Loads
 
 - **Move to a Microservices Architecture**: Break down monolithic logic (e.g., image analysis, scoring, rewards) into separate services to ensure independent scaling.
-- **Asynchronous Processing**: Offload image classification and OpenAI Vision API calls to background workers using tools like **BullMQ** (Node.js), **Celery** (Python), or a job queue service.
+- **Asynchronous Processing**: Offload image classification and OpenAI API calls to background workers using tools like **BullMQ** (Node.js), **Celery** (Python), or a job queue service.
 - **Cloud Scalability**: Deploy backend to auto-scaling environments like **AWS Lambda**, **Google Cloud Run**, or **Azure App Service**.
 
 
