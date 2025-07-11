@@ -172,8 +172,8 @@ To transform EcoScan into a scalable and production-ready platform, here are pro
 ### 1. Scaling the Backend for Larger User Loads
 
 - **Move to a Microservices Architecture**: Break down monolithic logic (e.g., image analysis, scoring, rewards) into separate services to ensure independent scaling.
-- **Asynchronous Processing**: Offload image classification and OpenAI API calls to background workers using tools like **BullMQ** (Node.js).
-- **Cloud Scalability**: Deploy backend to auto-scaling environments like **AWS Lambda**, **Google Cloud Run**, or **Azure App Service**.
+- **Asynchronous Processing**: Offload image classification and OpenAI API calls to background workers using tools like BullMQ (Node.js).
+- **Cloud Scalability**: Deploy backend to auto-scaling environments like AWS Lambda, Google Cloud Run, or Azure App Service.
 
 
 ### 2. Improve the Carbon Scoring Model
@@ -193,7 +193,7 @@ To transform EcoScan into a scalable and production-ready platform, here are pro
 
 ### 4. Integrate with External APIs
 
-- **Real-time Product Data**: Integrate with clothing databases like **Good On You**, **Open Apparel Registry** or **Sustainable Apparel Coalition**.
+- **Real-time Product Data**: Integrate with clothing databases like Good On You, Open Apparel Registry or Sustainable Apparel Coalition.
 - **Geo-based Reward Integration**: Use Google Maps API to show nearby stores or platforms accepting eco-points or offering sustainable options.
 - **Weather + Sustainability Tips**: Pull real-time weather data to suggest eco-friendly clothing choices.
 
