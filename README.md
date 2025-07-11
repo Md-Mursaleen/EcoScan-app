@@ -204,7 +204,7 @@ These enhancements would not only scale the application for enterprise usage but
 
 ## 🌐 Deployment
 
-The frontend (mobile app) APK has been built and shared for review. The backend is currently deployed on **Render** and the mobile app has been updated to use this deployed backend, so all core features (e.g., image scanning, carbon scoring analysis, generating eco-rewards) are fully functional without needing to run the backend locally.
+The frontend (mobile app) APK has been built and shared for review. The backend is currently deployed on render and the mobile app has been updated to use this deployed backend, so all core features (e.g., image scanning, carbon scoring analysis, generating eco-rewards) are fully functional without needing to run the backend locally.
 
 ### 🔧 To run the backend locally:
 
