@@ -22,8 +22,8 @@ const possibleItems = [
 ];
 
 function mockClassifier(imageBuffer) {
-    // Randomly return 5 or 4 items
-    const count = Math.floor(Math.random() * 2) + 5;
+    // Randomly return 4 or 5 items
+    const count = Math.floor(Math.random() * 2) + 4;
     const shuffled = [...possibleItems].sort(() => 0.5 - Math.random());
     return shuffled.slice(0, count);
 }

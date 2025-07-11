@@ -108,14 +108,14 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     buttonContainer: {
-        padding: normalize(14),
+        padding: normalize(13),
         marginTop: 'auto',
         marginBottom: normalize(60),
         marginHorizontal: normalize(20),
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#1d2a30',
-        borderRadius: 5,
+        borderRadius: 10,
     },
     buttonTextStyle: {
         fontSize: 16.5,
