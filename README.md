@@ -237,7 +237,7 @@ A working demo of the application has been recorded and uploaded to Google Drive
 
 You can also try out the app by downloading the latest APK build:
 
-📦 [Download APK for Review](https://drive.google.com/file/d/1sTg6LRLXFYZ6wZsU9jEz0v3MgOtiLb_B/view?usp=drivesdk)
+📦 [Download APK for Review](https://drive.google.com/file/d/1tFlzXk49-FBLl384InhwcXrzXa2PsYe-/view?usp=drivesdk)
 
 > Make sure to allow installations from unknown sources on your Android device.
 
