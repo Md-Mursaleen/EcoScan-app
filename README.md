@@ -4,16 +4,16 @@ EcoScan is a mobile application ddesigned to help users understand the environme
 
 ## 🔧 Tech Stack
 
-| Layer                  | Technology                                                                                                           |
-| ---------------------  | -------------------------------------------------------------------------------------------------------------------- |
-| **Frontend**           | React Native (with Expo), TypeScript                                                                                 |
-| **Backend**            | Node.js with Express                                                                                                 |
-| **AI Integration**     | OpenAI GPT-4o API via custom utilities:                                                                              |
-|                        | - `openAIClassifier`: Identifies clothing items from uploaded images (with fallback to `mockClassifier` if API fails due to RateLimit error) |
-|                        | - `carbonAndEcoPointsEstimator`: Estimates carbon footprint using AI or fallback data                                |
-|                        | - `generateRewards`: Suggests eco-rewards based on total eco-points                                                  |
-| **Frontend Libraries** | Axios, React Navigation, Lottie, React Native Pie Chart, Expo Image Picker, Expo File System, React Native Progress  |
-| **Backend Libraries**  | Express, Multer, Dotenv, OpenAI SDK, FormData                                                                        |
+| Layer                  | Technology                                                                                                                                            |
+| ---------------------  | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Frontend**           | React Native (with Expo), TypeScript                                                                                                                  |
+| **Backend**            | Node.js with Express                                                                                                                                  |
+| **AI Integration**     | OpenAI GPT-4o API via custom utilities:                                                                                                               |
+|                        | - `openAIClassifier`: Identifies clothing items from uploaded images (with fallback to `mockClassifier` if API fails due to RateLimit error)          |
+|                        | - `carbonAndEcoPointsEstimator`: Estimates carbon footprint using AI or fallback data                                                                 |
+|                        | - `generateRewards`: Suggests eco-rewards based on total eco-points                                                                                   |
+| **Frontend Libraries** | Axios, React Navigation, Lottie, React Native Pie Chart, Expo Image Picker, React Native Progress, Async Storage, Expo Web Browser, Expo Auth Session |
+| **Backend Libraries**  | Express, Multer, Dotenv, OpenAI SDK, FormData                                                                                                         | 
 
 ---
 
@@ -172,7 +172,7 @@ To transform EcoScan into a scalable and production-ready platform, here are pro
 ### 1. Scaling the Backend for Larger User Loads
 
 - **Move to a Microservices Architecture**: Break down monolithic logic (e.g., image analysis, scoring, rewards) into separate services to ensure independent scaling.
-- **Asynchronous Processing**: Offload image classification and OpenAI API calls to background workers using tools like **BullMQ** (Node.js), **Celery** (Python), or a job queue service.
+- **Asynchronous Processing**: Offload image classification and OpenAI API calls to background workers using tools like **BullMQ** (Node.js).
 - **Cloud Scalability**: Deploy backend to auto-scaling environments like **AWS Lambda**, **Google Cloud Run**, or **Azure App Service**.
 
 
@@ -204,7 +204,7 @@ These enhancements would not only scale the application for enterprise usage but
 
 ## 🌐 Deployment
 
-The frontend (mobile app) APK has been built and shared for review. The backend is currently deployed on Render and the mobile app has been updated to use this deployed backend, so all core features (e.g., image scanning, carbon scoring analysis) are fully functional without needing to run the backend locally.
+The frontend (mobile app) APK has been built and shared for review. The backend is currently deployed on **Render** and the mobile app has been updated to use this deployed backend, so all core features (e.g., image scanning, carbon scoring analysis, generating eco-rewards) are fully functional without needing to run the backend locally.
 
 ### 🔧 To run the backend locally:
 
@@ -240,16 +240,6 @@ You can also try out the app by downloading the latest APK build:
 📦 [Download APK for Review](https://drive.google.com/file/d/1sTg6LRLXFYZ6wZsU9jEz0v3MgOtiLb_B/view?usp=drivesdk)
 
 > Make sure to allow installations from unknown sources on your Android device.
-
----
-
-## 📬 Contact
-
-Made with 💚 by **Md Mursaleen**
-
-- [LinkedIn](https://www.linkedin.com/in/md-mursaleen085/)
-- [GitHub](https://github.com/Md-Mursaleen)
-- [Email](mailto:mursaleenansari085@gmail.com)
 
 ---
 
