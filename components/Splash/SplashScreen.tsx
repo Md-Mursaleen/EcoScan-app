@@ -94,8 +94,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFFFF',
     },
     backgroundImageStyle: {
-        width: width,
-        height: height,
+        width: '100%',
+        height: '100%',
     },
     imageTitleTextStyle: {
         position: 'absolute',
