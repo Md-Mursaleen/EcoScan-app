@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const generateRewards = require('../utilis/generateRewards');
+const getRewards = require('../utilis/getRewards');
 const fallbackRewards = require('../data/rewards');
 
 router.get('/', async (req, res) => {
@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     }
 
     try {
-        const rewards = await generateRewards(points);
+        const rewards = await getRewards(points);
         if (rewards.length > 0) {
             return res.json({ rewards });
         } else {

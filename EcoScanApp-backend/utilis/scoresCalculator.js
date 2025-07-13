@@ -1,12 +1,12 @@
-const estimateCarbonAndEcoPoints = require('./carbonAndEcoPointsEstimator');
+const scoresEstimator = require('./scoresEstimator');
 const fallbackScores = require('../data/carbonScores');
 const fallbackEcoPoints = require('../data/ecoPoints');
 
-async function scoreCalculator(items) {
+async function scoresCalculator(items) {
     let estimatedCarbonAndEcoPoints = {};
 
     try {
-        estimatedCarbonAndEcoPoints = await estimateCarbonAndEcoPoints(items);
+        estimatedCarbonAndEcoPoints = await scoresEstimator(items);
     } catch (error) {
         console.error('Failed to estimate carbon scores and eco points using OpenAI. Falling back to static values.');
         console.error(error.message || error);
@@ -30,4 +30,4 @@ async function scoreCalculator(items) {
     return { itemDetails, totalCarbonScore, totalEcoPoints };
 }
 
-module.exports = scoreCalculator;
+module.exports = scoresCalculator;

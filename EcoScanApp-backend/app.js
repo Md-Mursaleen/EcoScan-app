@@ -2,8 +2,8 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 
-const analysisRoute = require('./routes/analysis');
-const rewardsRoute = require('./routes/rewards');
+const analysis = require('./routes/analysis');
+const rewards = require('./routes/rewards');
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -12,8 +12,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/analysis', analysisRoute);
-app.use('/rewards', rewardsRoute);
+app.use('/analysis', analysis);
+app.use('/rewards', rewards);
 
 app.get('/', (req, res) => {
     res.send('EcoScan Backend is running!');

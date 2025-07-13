@@ -1,7 +1,7 @@
 const { OpenAI } = require('openai');
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-async function generateRewards(points) {
+async function getRewards(points) {
     const prompt = `
                     You are an assistant for a sustainability app.
 
@@ -39,4 +39,4 @@ async function generateRewards(points) {
     }
 }
 
-module.exports = generateRewards;
+module.exports = getRewards;

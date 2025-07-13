@@ -2,7 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const router = express.Router();
 const openAIClassifier = require('../utilis/openAIClassifier');
-const scoreCalculator = require('../utilis/carbonAndEcoPointsCalculator');
+const scoresCalculator = require('../utilis/scoresCalculator');
 const mockClassifier = require('../utilis/mockClassifier');
 
 const storage = multer.memoryStorage();
@@ -27,7 +27,7 @@ router.post('/', upload.single('image'), async (req, res) => {
         }
 
         // Calculate carbon score and eco-reward points
-        const { totalCarbonScore, totalEcoPoints, itemDetails } = await scoreCalculator(detectedItems);
+        const { totalCarbonScore, totalEcoPoints, itemDetails } = await scoresCalculator(detectedItems);
 
         return res.json({ items: itemDetails, totalCarbonScore, totalEcoPoints });
     } catch (err) {

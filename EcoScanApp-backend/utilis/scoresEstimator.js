@@ -1,7 +1,7 @@
 const { OpenAI } = require('openai');
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-async function estimateCarbonAndEcoPoints(items) {
+async function scoresEstimator(items) {
     const prompt = `
                     You are a sustainability expert for a carbon impact app. Estimate the **carbon footprint** (in kg CO₂) **and eco-reward points** required to manufacture the following clothing items. 
                     Respond in **JSON format** like this:
@@ -37,4 +37,4 @@ async function estimateCarbonAndEcoPoints(items) {
     }
 }
 
-module.exports = estimateCarbonAndEcoPoints;
+module.exports = scoresEstimator;
