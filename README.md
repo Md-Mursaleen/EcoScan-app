@@ -4,16 +4,16 @@ EcoScan is a mobile application designed to help users understand the environmen
 
 ## 🔧 Tech Stack
 
-| Layer                  | Technology                                                                                                                                            |
-| ---------------------  | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Frontend**           | React Native (with Expo), TypeScript                                                                                                                  |
-| **Backend**            | Node.js with Express                                                                                                                                  |
-| **AI Integration**     | OpenAI GPT-4o API via custom utilities:                                                                                                               |
-|                        | - `openAIClassifier`: Identifies clothing items from uploaded images (with fallback to `mockClassifier` if API fails due to RateLimit error)          |
-|                        | - `scoresEstimator`: Estimates carbon footprint using AI or fallback data                                                                 |
-|                        | - `getRewards`: Suggests eco-rewards based on total eco-points                                                                                   |
-| **Frontend Libraries** | Axios, React Navigation, Lottie, React Native Pie Chart, Expo Image Picker, React Native Progress, Async Storage, Expo Web Browser, Expo Auth Session |
-| **Backend Libraries**  | Express, Multer, Dotenv, OpenAI SDK, FormData                                                                                                         | 
+| Layer                  | Technology                                                                                                                                                                    |
+| ---------------------  | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Frontend**           | React Native (with Expo), TypeScript — for cross-platform mobile development                                                                                                  |
+| **Backend**            | Node.js with Express                                                                                                                                                          |
+| **AI Integration**     | OpenAI GPT-4o API via custom utilities:                                                                                                                                       |
+|                        | - `openAIClassifier`: Identifies clothing items from uploaded images using OpenAI Vision capabilities (with fallback to `mockClassifier` if API fails due to RateLimit error) |
+|                        | - `scoresEstimator`: Estimates carbon footprint and eco-points using GPT-4o, falling back to local static scores on error                                                     |
+|                        | - `getRewards`: Suggests personalized eco-rewards based on calculated eco-points using GPT-4o                                                                                 |
+| **Frontend Libraries** | Axios, React Navigation, Lottie Animations, React Native Pie Chart, Expo Image Picker, React Native Progress, Async Storage, Expo Web Browser, Expo Auth Session              |
+| **Backend Libraries**  | Express, Multer (for file uploads), Dotenv, OpenAI SDK, FormData                                                                                                              | 
 
 ---
 
@@ -22,20 +22,20 @@ EcoScan is a mobile application designed to help users understand the environmen
 ```
 EcoScanApp/
 ├── EcoScanApp-backend/
-│   ├── routes/              # API endpoints
-│   ├── utilis/              # Classifiers logic, scorers logic, rewards logic
+│   ├── routes/              # API route definitions
+│   ├── utilis/              # Classifiers logic, scoring logic, rewards logic
 │   ├── data/                # Static fallback data (JSON)
-|   ├── .env                 # Environment variables (OpenAI API key, secrets)
-│   └── app.js               # Main Express server
+|   ├── .env                 # Environment variables (e.g., OpenAI API key)
+│   └── app.js               # Express backend server
 │
-├── app/_layout.tsx          # React Native entry point
+├── app/_layout.tsx          # Root layout for the React Native frontend
 ├── assets/                  # Images and animations
-├── utilis/                  # UI utilities (e.g., scaling)
-├── components/TabNavigator  # HomeScreen.tsx, DetailsScreen.tsx, ProfileScreen.tsx, RedeemScreen.tsx
-├── components/Welcome       # WelcomeScreen.tsx
-├── components/Auth          # LoginScreen.tsx
-├── components/Splash        # SplashScreen.tsx
-└── package.json             # Project config
+├── utilis/                  # UI utilities (e.g., responsive scaling)
+├── components/TabNavigator  # Home screen, Details screen, Profile screen, Redeem screen
+├── components/Welcome       # Welcome screen
+├── components/Auth          # Login screen
+├── components/Splash        # Splash screen
+└── package.json             # Project dependencies and scripts
 ```
 
 ---
