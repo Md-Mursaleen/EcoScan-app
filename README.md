@@ -1,6 +1,6 @@
 # 🌍 EcoScan — Clothing Carbon Footprint Scanner
 
-EcoScan is a mobile application designed to help users understand the environmental impact of their clothing. By uploading images of clothing items, users can see estimated carbon scores, earn eco-reward points, and redeem sustainability-focused offers. This project demonstrates a full-stack solution for a green initiative product.
+EcoScan is a mobile application designed to help users understand the environmental impact of their clothing. By uploading images of clothing items, users can see estimated carbon scores, earn eco-reward points and redeem sustainability-focused offers. This project demonstrates a full-stack solution for a green initiative product.
 
 ## 🔧 Tech Stack
 
