@@ -10,8 +10,8 @@ EcoScan is a mobile application designed to help users understand the environmen
 | **Backend**            | Node.js with Express                                                                                                                                  |
 | **AI Integration**     | OpenAI GPT-4o API via custom utilities:                                                                                                               |
 |                        | - `openAIClassifier`: Identifies clothing items from uploaded images (with fallback to `mockClassifier` if API fails due to RateLimit error)          |
-|                        | - `carbonAndEcoPointsEstimator`: Estimates carbon footprint using AI or fallback data                                                                 |
-|                        | - `generateRewards`: Suggests eco-rewards based on total eco-points                                                                                   |
+|                        | - `scoresEstimator`: Estimates carbon footprint using AI or fallback data                                                                 |
+|                        | - `getRewards`: Suggests eco-rewards based on total eco-points                                                                                   |
 | **Frontend Libraries** | Axios, React Navigation, Lottie, React Native Pie Chart, Expo Image Picker, React Native Progress, Async Storage, Expo Web Browser, Expo Auth Session |
 | **Backend Libraries**  | Express, Multer, Dotenv, OpenAI SDK, FormData                                                                                                         | 
 
